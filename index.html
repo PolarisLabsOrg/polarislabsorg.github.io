@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 
     <!-- iOS-specific -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -232,6 +232,7 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.3s ease;
+                align-items: center; /* ADD THIS */
             }
 
             .nav-links.active {
@@ -243,12 +244,14 @@
                 width: 100%;
                 text-align: center;
                 padding: 0;
+                display: flex; /* ADD THIS */
+                justify-content: center; /* ADD THIS */
             }
 
             .nav-links a {
                 display: block;
                 padding: 15px 20px;
-                width: 100%;
+                width: 100%; /* Keep this for regular links */
             }
 
             .nav-links a::after {
@@ -256,9 +259,11 @@
             }
 
             .nav-cta {
-                margin: 10px 20px;
+                margin: 10px auto; /* CHANGE: was '10px 20px' */
                 text-align: center;
-                display: block;
+                display: inline-block; /* CHANGE: was 'block' */
+                width: auto; /* ADD THIS */
+                max-width: calc(100% - 40px); /* ADD THIS */
             }
         }
 
