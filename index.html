@@ -26,7 +26,7 @@
     <meta property="og:title" content="Horizon Africa Scholars | Transform Your Academic Future">
     <meta property="og:description" content="Strategic mentorship from Ivy League graduates. $1.9M+ in scholarships secured. Full support from SAT prep to visa guidance.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://horizonafricascholars.com">
+    <meta property="og:url" content="https://horizonafrica.org">
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#0a4d3c">
@@ -784,6 +784,140 @@
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
         }
 
+        /* Helpful Links Section */
+        .helpful-links-section {
+            margin: 80px 0;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(10, 77, 60, 0.02), rgba(16, 185, 129, 0.02));
+            border-radius: 28px;
+        }
+
+        .helpful-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .resource-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px) translateX(5px);
+            box-shadow: 0 25px 60px rgba(10, 77, 60, 0.15);
+            border-color: var(--primary-light);
+            background: white;
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .resource-card:hover .resource-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .resource-content {
+            flex: 1;
+        }
+
+        .resource-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0 0 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .resource-card:hover .resource-title {
+            color: var(--primary-light);
+        }
+
+        .resource-desc {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .resource-arrow {
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .resource-card:hover .resource-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .helpful-links-section {
+                padding: 50px 15px;
+                margin: 60px 0;
+            }
+
+            .helpful-links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .resource-card {
+                padding: 25px 20px;
+            }
+
+            .resource-icon {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .resource-card {
+                padding: 20px 15px;
+                gap: 15px;
+            }
+
+            .resource-icon {
+                font-size: 1.8rem;
+            }
+        }
 
         /* Timeline Section */
         .timeline-section {
@@ -1762,7 +1896,7 @@
             <p class="hero-subtitle">Strategic mentorship from Ivy League graduates to secure your place at world-class universities with full financial support</p>
             
             <div class="floating-badges">
-                <div class="mini-badge">🎯 96% Success Rate</div>
+                <div class="mini-badge">🎯 98% Success Rate</div>
                 <div class="mini-badge">💰 Full Aid Packages</div>
                 <div class="mini-badge">🌍 Africa to Ivy League</div>
             </div>
@@ -1815,7 +1949,7 @@
                 <div class="service-details">
                     <h4>What We Provide:</h4>
                     <ul>
-                        <li>Full funding for SAT/ACT registration and test fees</li>
+                        <li>Free preparation for SAT/ACT tests</li>
                         <li>Personalized study plans tailored to your baseline score</li>
                         <li>Access to premium prep materials and practice tests</li>
                         <li>Weekly progress tracking and strategy adjustments</li>
@@ -2024,21 +2158,21 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        What makes Horizon Africa different from other college counseling services?
+                        What makes Horizon Africa different from other college counselling services?
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        We're alumni-directed with direct experience at top universities. We provide comprehensive support including SAT funding, unlimited essay revisions, and personalized strategies. Our track record speaks for itself—$1.9M+ in scholarships secured.
+                        We're alumni-directed with direct experience at top universities. We provide comprehensive support and our track record speaks for itself; $1.9M+ in scholarships secured and a 98% success rate.
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        Do you really fund SAT/ACT exams?
+                        Do you really help people with SAT/ACT revision?
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Yes! We cover the full cost of your SAT or ACT registration and test fees as part of our commitment to removing financial barriers to world-class education.
+                        Yes! We help students in preparation and revision of the SAT/ACT examinations as part of our commitment to removing financial barriers to world-class education.
                     </div>
                 </div>
                 
@@ -2054,21 +2188,31 @@
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        How flexible is the payment plan?
+                        When should I start the program?
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        We offer a dynamic payment plan, making it accessible and manageable for families committed to investing in education.
+                        The earlier the better! Ideally, start 8-12 months before application deadlines. However, we can work with tighter timelines depending on your specific situation.
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        When should I start the program?
+                        Why should I go with you? 
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        The earlier the better! Ideally, start 8-12 months before application deadlines. However, we can work with tighter timelines depending on your situation.
+                        We usually help each student at a personal level, our support also includes full SAT/ACT planning, unlimited essay revisions, and personalized strategies for the application process. 
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How flexible is the payment plan?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We offer a dynamic payment plan, making it accessible and manageable for families committed to investing in education.
                     </div>
                 </div>
             </div>
@@ -2096,6 +2240,72 @@
                 <div class="location">Nairobi, Kenya</div>
             </div>
         </section>
+
+        <!-- Helpful Links -->
+        <section id="links" class="helpful-links-section">
+            <div class="section-header">
+                <h2 class="section-title">Essential Resources</h2>
+                <p class="section-subtitle">Quick access to the platforms you'll use throughout your journey</p>
+            </div>
+
+            <div class="helpful-links-grid">
+                <a href="https://www.collegeboard.org" target="_blank" class="resource-card">
+                    <div class="resource-icon">🎓</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">College Board</h4>
+                        <p class="resource-desc">Official SAT tests, AP exams, and college planning resources</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+
+                <a href="https://cssprofile.collegeboard.org" target="_blank" class="resource-card">
+                    <div class="resource-icon">💰</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">CSS Profile</h4>
+                        <p class="resource-desc">Apply for non-federal financial aid from colleges and universities</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+
+                <a href="https://www.commonapp.org" target="_blank" class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">Common App</h4>
+                        <p class="resource-desc">Apply to 900+ colleges with one streamlined application</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+
+                <a href="https://schoolhouse.world" target="_blank" class="resource-card">
+                    <div class="resource-icon">🌍</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">Schoolhouse World</h4>
+                        <p class="resource-desc">Free peer tutoring and academic support from verified tutors</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+
+                <a href="https://www.khanacademy.org" target="_blank" class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">Khan Academy</h4>
+                        <p class="resource-desc">Free SAT prep and academic courses in every subject</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+
+                <a href="https://educationusa.state.gov/" target="_blank" class="resource-card">
+                    <div class="resource-icon">🎯</div>
+                    <div class="resource-content">
+                        <h4 class="resource-title">EducationUSA Kenya</h4>
+                        <p class="resource-desc">Official guidance on studying in the United States</p>
+                    </div>
+                    <div class="resource-arrow">→</div>
+                </a>
+            </div>
+        </section>
+
+
 
         <!-- Contact Form Section -->
         <section class="contact-form-section" id="contact">
