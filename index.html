@@ -215,8 +215,10 @@ body::before {
 
 .mobile-nav .mob-cta {
   margin-top: 16px;
-  display: block;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: var(--forest);
   color: white !important;
   border-radius: 100px;
@@ -296,7 +298,7 @@ body::before {
   animation: fadeUp 0.6s var(--ease-out) 0.1s both;
 }
 
-.hero-eyebrow::before { content: '🎓'; font-size: 0.9rem; }
+.hero-eyebrow svg { width: 14px; height: 14px; fill: currentColor; }
 
 h1.hero-title {
   font-family: 'DM Serif Display', serif;
@@ -353,13 +355,14 @@ h1.hero-title .accent {
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 0;
   animation: fadeUp 0.7s var(--ease-out) 0.5s both;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   padding: 16px 36px;
   border-radius: 100px;
   font-size: 1rem;
@@ -372,6 +375,8 @@ h1.hero-title .accent {
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
+
+.btn svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
 .btn-primary {
   background: var(--forest);
@@ -398,36 +403,17 @@ h1.hero-title .accent {
 
 .btn-whatsapp:hover { background: #20BD5C; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,211,102,0.42); }
 
-/* ─── SCROLL INDICATOR ─── */
-.scroll-indicator {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  animation: fadeUp 1s var(--ease-out) 1s both;
+/* Instagram Gradient Configuration */
+.btn-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  box-shadow: 0 8px 24px rgba(220, 39, 67, 0.3);
 }
 
-.scroll-mouse {
-  width: 24px; height: 38px;
-  border: 1.5px solid var(--border-strong);
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  padding-top: 7px;
-}
-
-.scroll-dot {
-  width: 4px; height: 4px;
-  background: var(--emerald);
-  border-radius: 50%;
-  animation: scrollBounce 2s ease-in-out infinite;
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(220, 39, 67, 0.45);
+  filter: brightness(1.08);
 }
 
 @keyframes scrollBounce {
@@ -630,9 +616,12 @@ section.tight { padding: 60px 0; }
 .step-card:hover .step-num { color: rgba(10,77,60,0.15); }
 
 .step-icon {
-  font-size: 1.8rem;
+  width: 32px;
+  height: 32px;
   margin-bottom: 16px;
+  color: var(--forest);
 }
+.step-icon svg { width: 100%; height: 100%; fill: currentColor; }
 
 .step-title {
   font-family: 'DM Serif Display', serif;
@@ -675,7 +664,6 @@ section.tight { padding: 60px 0; }
     opacity 0.35s ease;
   position: relative;
   overflow: hidden;
-  /* grid placement reset */
   grid-column: auto;
   grid-row: auto;
 }
@@ -753,9 +741,19 @@ section.tight { padding: 60px 0; }
   width: 60px; height: 60px;
   background: rgba(255,255,255,0.15);
   border-radius: 16px;
-  font-size: 1.8rem;
   border: 1px solid rgba(255,255,255,0.2);
+  color: white;
 }
+
+.service-card .svc-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forest);
+}
+.service-card .svc-icon svg { width: 32px; height: 32px; fill: currentColor; }
 
 .service-card.open .svc-title {
   font-size: 1.55rem;
@@ -933,7 +931,7 @@ section.tight { padding: 60px 0; }
 
 .testi-name {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.9sm;
   color: var(--ink);
   margin-bottom: 2px;
 }
@@ -980,16 +978,18 @@ section.tight { padding: 60px 0; }
   background: white;
   border: 2px solid var(--emerald);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
+  color: var(--forest);
   flex-shrink: 0;
   position: relative;
   z-index: 1;
   box-shadow: var(--shadow-sm);
   transition: all 0.3s var(--ease-bounce);
 }
+.tl-dot svg { width: 22px; height: 22px; fill: currentColor; }
 
 .tl-item:hover .tl-dot {
   background: var(--forest);
+  color: white;
   transform: scale(1.1);
   box-shadow: 0 0 0 6px rgba(10,77,60,0.1);
 }
@@ -1062,7 +1062,13 @@ section.tight { padding: 60px 0; }
 .resource-card:hover { transform: translateY(-3px) translateX(3px); box-shadow: var(--shadow-md); border-color: rgba(10,77,60,0.2); background: white; }
 .resource-card:hover::before { transform: scaleY(1); }
 
-.resource-emoji { font-size: 1.8rem; flex-shrink: 0; }
+.resource-emoji {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--forest);
+}
+.resource-emoji svg { width: 100%; height: 100%; fill: currentColor; }
 
 .resource-title {
   font-weight: 600;
@@ -1196,8 +1202,17 @@ section.tight { padding: 60px 0; }
 .r-btn:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--emerald); }
 .r-btn.selected { background: var(--forest); border-color: var(--forest); color: white; }
 .r-btn.selected .r-btn-text { color: white; }
+.r-btn.selected .r-btn-icon { color: white; }
 
-.r-btn-icon { font-size: 1.8rem; }
+.r-btn-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.r-btn-icon svg { width: 100%; height: 100%; fill: currentColor; }
 .r-btn-text { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
 
 .readiness-response {
@@ -1352,10 +1367,11 @@ section.tight { padding: 60px 0; }
   background: rgba(255,255,255,0.12);
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
+  color: white;
   flex-shrink: 0;
   border: 1px solid rgba(255,255,255,0.15);
 }
+.contact-icon svg { width: 18px; height: 18px; fill: currentColor; }
 
 .contact-lbl {
   font-size: 0.72rem;
@@ -1446,6 +1462,7 @@ section.tight { padding: 60px 0; }
 .form-success.show { display: block; animation: fadeUp 0.4s var(--ease-out); }
 .form-success h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--forest); margin-bottom: 10px; }
 .form-success p { color: var(--muted); font-size: 0.9rem; }
+.form-success svg { width: 44px; height: 44px; fill: var(--forest); margin-bottom: 14px; }
 
 /* ─── FOOTER ─── */
 footer {
@@ -1495,13 +1512,14 @@ footer {
   background: rgba(255,255,255,0.07);
   border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
   text-decoration: none;
   transition: all 0.2s;
   border: 1px solid rgba(255,255,255,0.1);
 }
+.social-link svg { width: 16px; height: 16px; fill: currentColor; }
 
-.social-link:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+.social-link:hover { color: white; background: rgba(255,255,255,0.14); transform: translateY(-2px); }
 
 .footer-col h4 {
   font-size: 0.8rem;
@@ -1549,7 +1567,6 @@ footer {
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: white;
-  font-size: 1.1rem;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
@@ -1558,6 +1575,7 @@ footer {
   box-shadow: var(--shadow-md);
   border: none;
 }
+.scroll-top svg { width: 16px; height: 16px; fill: currentColor; }
 
 .scroll-top.show { opacity: 1; visibility: visible; }
 .scroll-top:hover { transform: translateY(-4px) scale(1.08); box-shadow: var(--shadow-lg); }
@@ -1594,11 +1612,11 @@ footer {
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 32px rgba(37,211,102,0.42);
   text-decoration: none;
-  font-size: 1.5rem;
   z-index: 999;
   transition: all 0.3s var(--ease-bounce);
   animation: pulse-wa 3s ease-in-out infinite;
 }
+.wa-float svg { width: 24px; height: 24px; fill: currentColor; }
 
 .wa-float:hover { transform: scale(1.12) rotate(-8deg); box-shadow: 0 12px 40px rgba(37,211,102,0.55); animation: none; }
 
@@ -1650,7 +1668,7 @@ footer {
   .readiness-btns { flex-direction: column; }
   .r-btn { flex-direction: row; width: 100%; justify-content: flex-start; }
   .book-ctas { flex-direction: column; align-items: center; }
-  .wa-float { left: 16px; bottom: 80px; width: 50px; height: 50px; font-size: 1.3rem; }
+  .wa-float { left: 16px; bottom: 80px; width: 50px; height: 50px; }
   .scroll-top { right: 16px; bottom: 20px; width: 44px; height: 44px; }
   .toast { left: 16px; right: 16px; bottom: 72px; max-width: none; }
 }
@@ -1675,8 +1693,8 @@ footer {
       Horizon<span>.</span>Africa
     </a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
       <li><a href="#how">How It Works</a></li>
+      <li><a href="#services">Services</a></li>
       <li><a href="#faq">FAQs</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#book" class="nav-cta">Book a Call</a></li>
@@ -1689,20 +1707,26 @@ footer {
 
 <!-- MOBILE NAV -->
 <nav class="mobile-nav" id="mobileNav">
-  <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#how" onclick="closeMenu()">How It Works</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
   <a href="#testimonials" onclick="closeMenu()">Success Stories</a>
   <a href="#faq" onclick="closeMenu()">FAQs</a>
   <a href="#links" onclick="closeMenu()">Resources</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a href="#book" class="mob-cta" onclick="closeMenu()">📅 Book a Free Call</a>
+  <a href="#book" class="mob-cta" onclick="closeMenu()">
+    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+    Book a Free Call
+  </a>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-bg"><div class="hero-orb"></div></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Harvard Alumni-Directed Program</div>
+    <div class="hero-eyebrow">
+      <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.48 13.04l-2.01-1.1L12 16.5l8.53-4.56-2.01 1.1L12 18.5l-6.52-5.46z"/></svg>
+      Harvard Alumni-Directed Program
+    </div>
     <h1 class="hero-title">
       Your Ivy League<br>
       <span class="accent">future starts here</span>
@@ -1714,14 +1738,16 @@ footer {
       <div class="pill"><strong>Full aid</strong> packages available</div>
     </div>
     <div class="hero-ctas">
-      <a href="#book" class="btn btn-primary">Book a Free Consultation ↗</a>
-      <a href="https://wa.me/254117146370?text=Hi%2C%20I%27m%20interested%20in%20Horizon%20Africa%20Scholars" target="_blank" class="btn btn-whatsapp">💬 WhatsApp Us</a>
+      <a href="#book" class="btn btn-primary">
+        Book a Free Consultation
+        <svg viewBox="0 0 24 24"><path d="M5 17.59L15.59 7H9V5h10v10h-2V8.41L6.41 19 5 17.59z"/></svg>
+      </a>
+      <a href="https://wa.me/254117146370?text=Hi%2C%20I%27m%20interested%20in%20Horizon%20Africa%20Scholars" target="_blank" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 14.12c-.24.69-1.42 1.26-1.95 1.33-.49.07-.96.09-2.87-.66-2.45-.96-4.01-3.44-4.13-3.6-.13-.17-.96-1.28-.96-2.44s.6-1.73.81-1.96c.21-.23.46-.29.61-.29.15 0 .3.01.43.01.14 0 .33-.05.51.39.19.46.66 1.62.72 1.74.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.26.31-.37.42-.12.13-.25.27-.11.51.14.24.63 1.03 1.35 1.67.93.82 1.71 1.08 1.96 1.2.25.12.39.1.53-.06.14-.17.61-.71.77-.95.16-.24.33-.2.55-.12.23.08 1.45.69 1.7.81.25.12.42.18.48.29.06.11.06.64-.18 1.33z"/></svg>
+        WhatsApp Us
+      </a>
       <a href="#services" class="btn btn-secondary">Explore Services</a>
     </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
-    <span>Scroll</span>
   </div>
 </section>
 
@@ -1774,6 +1800,7 @@ footer {
     </div>
   </div>
 </div>
+
 
 <!-- HOW IT WORKS -->
 <section class="how-section" id="how">
@@ -1831,7 +1858,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">📚</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">SAT/ACT Excellence</div>
@@ -1855,7 +1884,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">🖊️</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">Essay Mastery</div>
@@ -1879,7 +1910,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">💎</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">Financial Aid Strategy</div>
@@ -1903,7 +1936,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">🎯</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">Interview Coaching</div>
@@ -1927,7 +1962,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">🔄</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">Waitlist Conversion</div>
@@ -1951,7 +1988,9 @@ footer {
       <div class="service-card" onclick="toggleService(this)">
         <div class="svc-collapsed">
           <div class="svc-header">
-            <div class="svc-icon">🌍</div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            </div>
           </div>
           <div>
             <div class="svc-title">Visa & Travel Support</div>
@@ -2042,7 +2081,9 @@ footer {
     </div>
     <div class="resources-grid">
       <a href="https://www.collegeboard.org" target="_blank" class="resource-card reveal">
-        <div class="resource-emoji">🎓</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+        </div>
         <div>
           <div class="resource-title">College Board</div>
           <p class="resource-desc">Official SAT tests, AP exams, and college planning resources</p>
@@ -2050,7 +2091,9 @@ footer {
         <div class="resource-arrow">→</div>
       </a>
       <a href="https://cssprofile.collegeboard.org" target="_blank" class="resource-card reveal reveal-delay-1">
-        <div class="resource-emoji">💰</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
         <div>
           <div class="resource-title">CSS Profile</div>
           <p class="resource-desc">Apply for non-federal financial aid from colleges and universities</p>
@@ -2058,7 +2101,9 @@ footer {
         <div class="resource-arrow">→</div>
       </a>
       <a href="https://www.commonapp.org" target="_blank" class="resource-card reveal reveal-delay-2">
-        <div class="resource-emoji">📝</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
         <div>
           <div class="resource-title">Common App</div>
           <p class="resource-desc">Apply to 900+ colleges with one streamlined application</p>
@@ -2066,7 +2111,9 @@ footer {
         <div class="resource-arrow">→</div>
       </a>
       <a href="https://schoolhouse.world" target="_blank" class="resource-card reveal">
-        <div class="resource-emoji">🌍</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
         <div>
           <div class="resource-title">Schoolhouse World</div>
           <p class="resource-desc">Free peer tutoring and academic support from verified tutors</p>
@@ -2074,7 +2121,9 @@ footer {
         <div class="resource-arrow">→</div>
       </a>
       <a href="https://www.khanacademy.org" target="_blank" class="resource-card reveal reveal-delay-1">
-        <div class="resource-emoji">📚</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+        </div>
         <div>
           <div class="resource-title">Khan Academy</div>
           <p class="resource-desc">Free SAT prep and academic courses in every subject</p>
@@ -2082,7 +2131,9 @@ footer {
         <div class="resource-arrow">→</div>
       </a>
       <a href="https://educationusa.state.gov/" target="_blank" class="resource-card reveal reveal-delay-2">
-        <div class="resource-emoji">🎯</div>
+        <div class="resource-emoji">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+        </div>
         <div>
           <div class="resource-title">EducationUSA</div>
           <p class="resource-desc">Official guidance on studying in the United States</p>
@@ -2185,20 +2236,6 @@ footer {
   </div>
 </section>
 
-<!-- BOOK A CALL -->
-<section class="book-section" id="book">
-  <div class="book-inner">
-    <h2 class="book-title">Ready to begin your journey?</h2>
-    <p class="book-sub">Book a free 30-minute consultation with our admissions experts. No commitment required — just a conversation about your goals.</p>
-    <div class="book-ctas">
-      <a href="mailto:info@horizonafrica.org" class="btn btn-outline-white">✉️ Send an Email</a>
-      <a href="https://wa.me/254117146370?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Horizon%20Africa" target="_blank" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
-      <a href="https://calendly.com/horizonafrica" target="_blank" class="btn btn-white">📅 Book Your Free Call</a>
-      <a href="https://ig.me/m/_horizonafrica" class="btn btn-outline-white">✉️ Our Instagram</a>
-    </div>
-    <p class="book-note">No commitment required · Completely free · Response within 24 hours</p>
-  </div>
-</section>
 
 <!-- CONTACT FORM -->
 <section class="contact-section" id="contact">
@@ -2209,35 +2246,45 @@ footer {
         <p class="contact-left-sub">Fill in the form or reach us directly through any of the channels below. We respond within 24 hours.</p>
         <div class="contact-details">
           <div class="contact-row">
-            <div class="contact-icon">✉️</div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
             <div>
               <div class="contact-lbl">Email</div>
               <a href="mailto:info@horizonafrica.org" class="contact-val">info@horizonafrica.org</a>
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon">📞</div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
             <div>
               <div class="contact-lbl">Phone</div>
               <a href="tel:+254117146370" class="contact-val">+254 117 146 370</a>
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon">💬</div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+            </div>
             <div>
               <div class="contact-lbl">WhatsApp</div>
               <a href="https://wa.me/254117146370" target="_blank" class="contact-val">+254 117 146 370</a>
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon">📍</div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
             <div>
               <div class="contact-lbl">Location</div>
               <span class="contact-val">Nairobi, Kenya</span>
             </div>
           </div>
           <div class="contact-row">
-            <div class="contact-icon">⏰</div>
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 2 22 6.48 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
             <div>
               <div class="contact-lbl">Office Hours</div>
               <span class="contact-val">Mon – Fri, 9AM – 6PM EAT</span>
@@ -2248,7 +2295,7 @@ footer {
       <div class="contact-right">
         <h3>Send us a message</h3>
         <div id="formSuccess" class="form-success">
-          <div style="font-size:2.5rem;margin-bottom:14px;">✅</div>
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           <h3>Message Sent!</h3>
           <p>Thank you for reaching out. We'll be in touch within 24 hours.</p>
         </div>
@@ -2305,6 +2352,34 @@ footer {
   </div>
 </section>
 
+<!-- BOOK A CALL -->
+<section class="book-section" id="book">
+  <div class="book-inner">
+    <h2 class="book-title">Ready to begin your journey?</h2>
+    <p class="book-sub">Book a free 30-minute consultation with our admissions experts. No commitment required — just a conversation about your goals.</p>
+    <div class="book-ctas">
+      <a href="mailto:info@horizonafrica.org" class="btn btn-outline-white">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Send an Email
+      </a>
+      <a href="https://wa.me/254117146370?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Horizon%20Africa" target="_blank" class="btn btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 14.12c-.24.69-1.42 1.26-1.95 1.33-.49.07-.96.09-2.87-.66-2.45-.96-4.01-3.44-4.13-3.6-.13-.17-.96-1.28-.96-2.44s.6-1.73.81-1.96c.21-.23.46-.29.61-.29.15 0 .3.01.43.01.14 0 .33-.05.51.39.19.46.66 1.62.72 1.74.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.26.31-.37.42-.12.13-.25.27-.11.51.14.24.63 1.03 1.35 1.67.93.82 1.71 1.08 1.96 1.2.25.12.39.1.53-.06.14-.17.61-.71.77-.95.16-.24.33-.2.55-.12.23.08 1.45.69 1.7.81.25.12.42.18.48.29.06.11.06.64-.18 1.33z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="https://calendly.com/horizonafrica/30min" target="_blank" class="btn btn-white">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+        Book Your Free Call
+      </a>
+      <a href="https://ig.me/m/_horizonafrica" class="btn btn-instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Our Instagram
+      </a>
+    </div>
+    <p class="book-note">No commitment required · Completely free · Response within 24 hours</p>
+  </div>
+</section>
+
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -2313,10 +2388,18 @@ footer {
         <div class="footer-logo">Horizon<span>.</span>Africa</div>
         <p class="footer-tagline">Empowering African talent to reach world-class universities — one scholar at a time.</p>
         <div class="footer-social">
-          <a href="https://instagram.com/_horizonafrica" target="_blank" class="social-link" title="Instagram">📷</a>
-          <a href="https://wa.me/254117146370" target="_blank" class="social-link" title="WhatsApp">💬</a>
-          <a href="mailto:info@horizonafrica.org" class="social-link" title="Email">✉️</a>
-          <a href="tel:+254117146370" class="social-link" title="Phone">📞</a>
+          <a href="https://instagram.com/_horizonafrica" target="_blank" class="social-link" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="https://wa.me/254117146370" target="_blank" class="social-link" title="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 14.12c-.24.69-1.42 1.26-1.95 1.33-.49.07-.96.09-2.87-.66-2.45-.96-4.01-3.44-4.13-3.6-.13-.17-.96-1.28-.96-2.44s.6-1.73.81-1.96c.21-.23.46-.29.61-.29.15 0 .3.01.43.01.14 0 .33-.05.51.39.19.46.66 1.62.72 1.74.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.26.31-.37.42-.12.13-.25.27-.11.51.14.24.63 1.03 1.35 1.67.93.82 1.71 1.08 1.96 1.2.25.12.39.1.53-.06.14-.17.61-.71.77-.95.16-.24.33-.2.55-.12.23.08 1.45.69 1.7.81.25.12.42.18.48.29.06.11.06.64-.18 1.33z"/></svg>
+          </a>
+          <a href="mailto:info@horizonafrica.org" class="social-link" title="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="tel:+254117146370" class="social-link" title="Phone">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col">
@@ -2341,7 +2424,7 @@ footer {
       <div class="footer-col">
         <h4>Get Started</h4>
         <ul>
-          <li><a href="https://calendly.com/horizonafrica" target="_blank">Book a Free Call</a></li>
+          <li><a href="https://calendly.com/horizonafrica/30min" target="_blank">Book a Free Call</a></li>
           <li><a href="mailto:info@horizonafrica.org">Email Us</a></li>
           <li><a href="https://wa.me/254117146370" target="_blank">WhatsApp</a></li>
           <li><a href="tel:+254117146370">Call Us</a></li>
@@ -2356,8 +2439,12 @@ footer {
 </footer>
 
 <!-- FLOATING ELEMENTS -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<a class="wa-float" href="https://wa.me/254117146370?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Horizon%20Africa%20Scholars" target="_blank" title="Chat on WhatsApp">💬</a>
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+</button>
+<a class="wa-float" href="https://wa.me/254117146370?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20Horizon%20Africa%20Scholars" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 14.12c-.24.69-1.42 1.26-1.95 1.33-.49.07-.96.09-2.87-.66-2.45-.96-4.01-3.44-4.13-3.6-.13-.17-.96-1.28-.96-2.44s.6-1.73.81-1.96c.21-.23.46-.29.61-.29.15 0 .3.01.43.01.14 0 .33-.05.51.39.19.46.66 1.62.72 1.74.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.26.31-.37.42-.12.13-.25.27-.11.51.14.24.63 1.03 1.35 1.67.93.82 1.71 1.08 1.96 1.2.25.12.39.1.53-.06.14-.17.61-.71.77-.95.16-.24.33-.2.55-.12.23.08 1.45.69 1.7.81.25.12.42.18.48.29.06.11.06.64-.18 1.33z"/></svg>
+</a>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -2437,12 +2524,12 @@ function handleReadiness(choice, btn) {
     yes: {
       title: '🎉 Excellent — let\'s get started!',
       text: 'You\'re taking the first step towards an incredible academic journey. Book your free consultation and let\'s create your personalised roadmap to success.',
-      ctaText: 'Book a Free Call →', ctaHref: 'https://calendly.com/horizonafrica'
+      ctaText: 'Book a Free Call →', ctaHref: 'https://calendly.com/horizonafrica/30min'
     },
     maybe: {
       title: '📚 We\'d love to tell you more',
       text: 'Totally normal to have questions! Schedule a free call with our team — no commitment, just a conversation about your goals and how we can help.',
-      ctaText: 'Schedule a Call →', ctaHref: 'https://calendly.com/horizonafrica'
+      ctaText: 'Schedule a Call →', ctaHref: 'https://calendly.com/horizonafrica/30min'
     },
     no: {
       title: '⏰ No rush — we\'ll be here',
